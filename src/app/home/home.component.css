@@ -1,0 +1,12 @@
+.btn {
+  background-color: rebeccapurple;
+  color: #fff;
+  padding: 5px 25px;
+  margin: 20px;
+}
+
+.form-control {
+  border: 1px solid blue;
+  background-color: rgba(135, 207, 235, 0.555);
+  color: black;
+}

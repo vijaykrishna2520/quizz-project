@@ -1,0 +1,12 @@
+<div class="text-center" id="text" [ngClass]="{ cent: user < 50 }">
+  Congaratulations!
+</div>
+<!-- <div class="text-center" [ngClass]="{ cent: user < 50 }">
+  We are sorry try next time
+</div> -->
+
+<div class="text-center">your score is {{ user }}</div>
+
+<button id="btn" class="btn btn-default pull-right">
+  <a type="button" (click)="send()"> Retake</a>
+</button>

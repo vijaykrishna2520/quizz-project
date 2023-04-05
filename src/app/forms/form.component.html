@@ -1,0 +1,77 @@
+<body id="page">
+  <form
+    [formGroup]="loginForm"
+    #employeeForm="ngForm"
+    (ngSubmit)="saveEmployee(employeeForm)"
+  >
+    <div
+      class="panel panel-primary"
+      style="max-width:350px;margin-left:auto;margin-right:auto; margin-top:100px;"
+    >
+      <div class="panel-heading">
+        <h3 class="panel-title">Welcome</h3>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="Username">User Name</label>
+          <input
+            id="uname"
+            formControlName="username"
+            type="text"
+            class="form-control"
+            [class.error]="
+              loginForm.controls['username'].dirty &&
+              loginForm.hasError('required', 'username')
+            "
+            [(ngModel)]="fullname"
+            name="fn"
+          />
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            loginForm.controls['username'].dirty &&
+            loginForm.hasError('required', 'username')
+          "
+          >*username is required</small
+        >
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            formControlName="password"
+            type="password"
+            [class.error]="
+              loginForm.controls['password'].dirty &&
+              loginForm.hasError('required', 'password')
+            "
+            class="form-control"
+            [(ngModel)]="password"
+            name="email"
+          />
+        </div>
+        <small
+          class="text-danger"
+          *ngIf="
+            loginForm.controls['password'].dirty &&
+            loginForm.hasError('required', 'password')
+          "
+          >*Password is required</small
+        >
+      </div>
+
+      <div class="panel-footer text-center">
+        <button
+          [disabled]="loginForm.invalid"
+          type="submit"
+          class="btn btn-primary"
+          (click)="submit()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </form>
+</body>
+
+{{ employeeForm.value | json }}

@@ -1,0 +1,24 @@
+.text-center {
+  color: green;
+  font-size: x-large;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  position: relative;
+  top: 100px;
+}
+
+.cent {
+  color: red;
+}
+
+#btn {
+  height: 50px;
+  color: chocolate;
+  width: 100px;
+  position: relative;
+  top: 250px;
+  right: 80px;
+  background-color: rgba(220, 245, 244, 0.568);
+
+  font-weight: bold;
+}

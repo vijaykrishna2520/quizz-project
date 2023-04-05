@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizz app</title>
+  </head>
+  <body>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Online Quiz</h3>
+      </div>
+
+      <div class="panel-body">
+        <form #quizForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-controll">
+            <div class="question">
+              <label for="cricket" class="inline"
+                >{{ quiz[currentValue].questionNo }}
+                {{ quiz[currentValue].questionName | uppercase }}</label
+              >
+            </div>
+
+            <div
+              class="options"
+              *ngFor="let option of quiz[currentValue].optionName"
+            >
+              <div class="form-control">
+                <label
+                  class="radio-inline"
+                  [class.has.error]="gender.touched && gender.invalid"
+                >
+                  <input
+                    type="radio"
+                    id="currentValue+1"
+                    required
+                    #gender="ngModel"
+                    [name]="name[currentValue]"
+                    [value]="option"
+                    (click)="set(option, currentValue)"
+                    [ngModel]="option"
+                  />{{ option }}</label
+                >
+              </div>
+              <span class="help-block" *ngIf="gender.touched && gender.invalid">
+                Select your answer
+              </span>
+            </div>
+          </div>
+
+          <br /><br />
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="previous()"
+            *ngIf="currentValue > 0"
+          >
+            previous
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning"
+            [disabled]="currentValue == quiz.length - 1"
+            (click)="next()"
+          >
+            next
+          </button>
+
+          <div class="panel-footer">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg"
+              (click)="onSubmit()"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<!-- <my-submit [item]="display"></my-submit> -->
+{{ quizForm.value | json }}
